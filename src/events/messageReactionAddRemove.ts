@@ -1,10 +1,10 @@
-import { MessageReaction, Role, User } from "discord.js";
+import { Client, MessageReaction, Role, User } from "discord.js";
 import { ReactionAction } from "../types/ReactionAction";
 
 const { apiPingEmoteId, apiPingRoleId } = require("config.json");
 
-export async function messageReactionAddRemove(messageReaction: MessageReaction, user: User, action: ReactionAction) {
-    if (!messageReaction.message.guild) return;
+export async function messageReactionAddRemove(client: Client, messageReaction: MessageReaction, user: User, action: ReactionAction) {
+    if (!messageReaction.message.guild || user.equals(client.user)) return;
 
     const guild = messageReaction.message.guild;
 

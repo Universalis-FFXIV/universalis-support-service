@@ -24,10 +24,10 @@ client.login()
     global.logger.info(`Logged in as ${client.user.username}!`);
 
     client.on("messageReactionAdd", async (messageReaction, user) => {
-        await messageReactionAddRemove(messageReaction, user, ReactionAction.Added);
+        await messageReactionAddRemove(client, messageReaction, user, ReactionAction.Added);
     });
 
     client.on("messageReactionRemove", async (messageReaction, user) => {
-        await messageReactionAddRemove(messageReaction, user, ReactionAction.Removed);
+        await messageReactionAddRemove(client, messageReaction, user, ReactionAction.Removed);
     });
 });
