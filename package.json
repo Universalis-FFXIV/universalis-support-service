@@ -1,0 +1,26 @@
+{
+  "name": "universalis-support-service",
+  "version": "1.0.0",
+  "description": "Discord bot to manage support actions on the Universalis Discord server.",
+  "main": "build/index.ts\u001b[D\u001buniversa\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~lis\u001b[2~\u001b[Ds\u001b[2~\u001b[Ds-support-service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karashiiro/universalis-support-service.git"
+  },
+  "author": "karashiiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karashiiro/universalis-support-service/issues"
+  },
+  "homepage": "https://github.com/karashiiro/universalis-support-service#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.6"
+  }
+}
