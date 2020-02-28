@@ -15,10 +15,10 @@ export async function messageReactionAddRemove(client: Client, logger: Logger, m
 
         if (action === ReactionAction.Added) {
             await member.addRole(apiPingRole);
-            logger.info(`Added ${member.nickname} to ${apiPingRole.name}`);
+            logger.info(`Added ${member.user.username} to ${apiPingRole.name}`);
         } else {
             await member.removeRole(apiPingRole);
-            logger.info(`Removed ${member.nickname} to ${apiPingRole.name}`);
+            logger.info(`Removed ${member.user.username} to ${apiPingRole.name}`);
         }
     }
 }
