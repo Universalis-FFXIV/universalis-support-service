@@ -9,7 +9,7 @@ const { token } = require("../config.json");
 const client = new Discord.Client();
 const logger = Winston.createLogger({
     level: "info",
-    format: Winston.format.colorize(),
+    format: Winston.format.json(),
     transports: [
         new Winston.transports.Console(),
         new Winston.transports.File({
