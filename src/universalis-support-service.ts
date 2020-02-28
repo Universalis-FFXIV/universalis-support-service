@@ -7,7 +7,7 @@ import { ReactionAction } from "./types/ReactionAction";
 const { token } = require("../config.json");
 
 const client = new Discord.Client();
-global.logger = Winston.createLogger({
+const logger = Winston.createLogger({
     level: "info",
     format: Winston.format.colorize(),
     transports: [
@@ -21,13 +21,13 @@ global.logger = Winston.createLogger({
 
 client.login(token)
 .then(() => {
-    global.logger.info(`Logged in as ${client.user.username}!`);
+    logger.info(`Logged in as ${client.user.username}!`);
 
     client.on("messageReactionAdd", async (messageReaction, user) => {
-        await messageReactionAddRemove(client, messageReaction, user, ReactionAction.Added);
+        await messageReactionAddRemove(client, logger, messageReaction, user, ReactionAction.Added);
     });
 
     client.on("messageReactionRemove", async (messageReaction, user) => {
-        await messageReactionAddRemove(client, messageReaction, user, ReactionAction.Removed);
+        await messageReactionAddRemove(client, logger, messageReaction, user, ReactionAction.Removed);
     });
 });
