@@ -6,7 +6,7 @@ import { ReactionAction } from "./types/ReactionAction";
 
 const { token } = require("../config.json");
 
-const client = new Discord.Client(token);
+const client = new Discord.Client();
 global.logger = Winston.createLogger({
     level: "info",
     format: Winston.format.colorize(),
@@ -19,7 +19,7 @@ global.logger = Winston.createLogger({
     ],
 });
 
-client.login()
+client.login(token)
 .then(() => {
     global.logger.info(`Logged in as ${client.user.username}!`);
 
