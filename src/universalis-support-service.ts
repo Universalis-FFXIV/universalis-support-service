@@ -4,7 +4,7 @@ import * as Winston from "winston";
 import { messageReactionAddRemove } from "./events/messageReactionAddRemove";
 import { ReactionAction } from "./types/ReactionAction";
 
-const { token } = require("config.json");
+const { token } = require("../config.json");
 
 const client = new Discord.Client(token);
 global.logger = Winston.createLogger({
