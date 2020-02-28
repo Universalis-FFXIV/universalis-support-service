@@ -20,8 +20,14 @@ const logger = Winston.createLogger({
 });
 
 client.login(token)
-.then(() => {
+.then(async () => {
     logger.info(`Logged in as ${client.user.username}!`);
+
+    for (const [_, channel] of client.channels) {
+        if (channel.type === "text") {
+            await (channel as Discord.TextChannel).fetchMessages({limit: 100});
+        }
+    }
 
     client.on("messageReactionAdd", async (messageReaction, user) => {
         await messageReactionAddRemove(client, logger, messageReaction, user, ReactionAction.Added);
