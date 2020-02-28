@@ -25,7 +25,9 @@ client.login(token)
 
     for (const [_, channel] of client.channels) {
         if (channel.type === "text") {
-            await (channel as Discord.TextChannel).fetchMessages({limit: 100});
+            try {
+                await (channel as Discord.TextChannel).fetchMessages({limit: 100});
+            } catch {}
         }
     }
 
