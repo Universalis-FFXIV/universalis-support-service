@@ -3,6 +3,7 @@ import * as Winston from "winston";
 
 import { messageReactionAddRemove } from "./events/messageReactionAddRemove";
 import { ReactionAction } from "./types/ReactionAction";
+import { checkDiskUsageCommand } from "./checkDiskUsageCommand";
 
 const { token } = require("../config.json");
 
@@ -30,6 +31,12 @@ client.login(token)
             } catch {}
         }
     }
+
+    client.on("message", async (message) => {
+        if (message.content.startsWith("^checkdiskusage")) {
+            checkDiskUsageCommand(client);
+        }
+    })
 
     client.on("messageReactionAdd", async (messageReaction, user) => {
         await messageReactionAddRemove(client, logger, messageReaction, user, ReactionAction.Added);
