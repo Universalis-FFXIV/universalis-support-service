@@ -2,7 +2,7 @@ import { exec } from "child_process";
 
 /** Returns an object of disk usage values, with percentage outputs. */
 export function checkDiskUsage(fn: (err: Error | null, deviceList: { [key: string]: number } | null) => void) {
-	exec("", (err, stdout) => {
+	exec("df -H", (err, stdout) => {
 		if (err) {
 			fn(err, null);
 			return;
