@@ -8,11 +8,11 @@ function checkDiskUsage(fn) {
             fn(err, null);
             return;
         }
-        console.log(stdout);
         const deviceList = {};
         const lines = stdout.split(/\v/g);
         lines.shift();
         for (const line of lines) {
+            console.log(line);
             const words = line.split(/\s+/g);
             Object.defineProperty(deviceList, words[5], parseInt(words[4].substr(0, words[4].length - 1)));
         }
