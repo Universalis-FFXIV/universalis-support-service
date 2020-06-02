@@ -12,9 +12,8 @@ function checkDiskUsage(fn) {
         const lines = stdout.split(/\n|\r/g);
         lines.shift();
         for (const line of lines) {
-            console.log(line);
             const words = line.split(/\s+/g);
-            Object.defineProperty(deviceList, words[5], parseInt(words[4].substr(0, words[4].length - 1)));
+            deviceList[words[5]] = parseInt(words[4].substr(0, words[4].length - 1));
         }
         fn(null, deviceList);
     });
