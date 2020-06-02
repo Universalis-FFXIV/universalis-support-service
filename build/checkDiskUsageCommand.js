@@ -13,6 +13,7 @@ const { alertChannelId } = require("../config.json");
 function checkDiskUsageCommand(client) {
     const alertChannel = client.channels.get(alertChannelId);
     checkDiskUsage_1.checkDiskUsage((err, deviceList) => __awaiter(this, void 0, void 0, function* () {
+        console.log("All done!");
         if (!err) {
             for (const device in deviceList) {
                 if (deviceList[device] > 10) {

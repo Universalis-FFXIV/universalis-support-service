@@ -7,6 +7,7 @@ export function checkDiskUsageCommand(client: Client) {
     const alertChannel = client.channels.get(alertChannelId)! as TextChannel;
 
     checkDiskUsage(async (err, deviceList) => {
+        console.log("All done!");
         if (!err) {
             for (const device in deviceList) {
                 if (deviceList[device] > 10) {
