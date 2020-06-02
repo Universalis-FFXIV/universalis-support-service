@@ -13,7 +13,7 @@ function alertDiskSize(client) {
     return __awaiter(this, void 0, void 0, function* () {
         while (true) {
             checkDiskUsageCommand_1.checkDiskUsageCommand(client);
-            yield sleep(10000);
+            yield sleep(2 * 60 * 60000);
         }
     });
 }

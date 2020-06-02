@@ -15,7 +15,7 @@ function checkDiskUsageCommand(client) {
     checkDiskUsage_1.checkDiskUsage((err, deviceList) => __awaiter(this, void 0, void 0, function* () {
         if (!err) {
             for (const device in deviceList) {
-                if (deviceList[device] > 10) {
+                if (deviceList[device] > 90) {
                     yield alertChannel.send(`Device ${device} is almost out of storage space! Current disk usage: ${deviceList[device]}%`);
                 }
             }

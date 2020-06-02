@@ -4,6 +4,7 @@ import * as Winston from "winston";
 import { messageReactionAddRemove } from "./events/messageReactionAddRemove";
 import { ReactionAction } from "./types/ReactionAction";
 import { checkDiskUsageCommand } from "./checkDiskUsageCommand";
+import { alertDiskSize } from "./cronjobs/alertDiskSize";
 
 const { token } = require("../config.json");
 
@@ -31,6 +32,9 @@ client.login(token)
             } catch {}
         }
     }
+
+    // Start looped jobs
+    alertDiskSize(client);
 
     client.on("message", async (message) => {
         if (message.content.startsWith("^checkdiskusage")) {

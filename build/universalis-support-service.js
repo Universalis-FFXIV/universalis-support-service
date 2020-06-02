@@ -20,6 +20,7 @@ const Winston = __importStar(require("winston"));
 const messageReactionAddRemove_1 = require("./events/messageReactionAddRemove");
 const ReactionAction_1 = require("./types/ReactionAction");
 const checkDiskUsageCommand_1 = require("./checkDiskUsageCommand");
+const alertDiskSize_1 = require("./cronjobs/alertDiskSize");
 const { token } = require("../config.json");
 const client = new Discord.Client();
 const logger = Winston.createLogger({
@@ -44,6 +45,8 @@ client.login(token)
             catch (_a) { }
         }
     }
+    // Start looped jobs
+    alertDiskSize_1.alertDiskSize(client);
     client.on("message", (message) => __awaiter(this, void 0, void 0, function* () {
         if (message.content.startsWith("^checkdiskusage")) {
             checkDiskUsageCommand_1.checkDiskUsageCommand(client);

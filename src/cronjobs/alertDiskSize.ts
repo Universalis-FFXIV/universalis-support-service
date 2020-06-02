@@ -4,7 +4,7 @@ import { checkDiskUsageCommand } from "../checkDiskUsageCommand";
 export async function alertDiskSize(client: Client) {
     while (true) {
         checkDiskUsageCommand(client);
-        await sleep(10000);
+        await sleep(2 * 60 * 60000);
     }
 };
 
