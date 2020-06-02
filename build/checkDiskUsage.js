@@ -10,6 +10,7 @@ function checkDiskUsage(fn) {
         }
         const deviceList = {};
         const lines = stdout.split(/\v/g);
+        console.log(lines.length);
         lines.shift();
         for (const line of lines) {
             console.log(line);
