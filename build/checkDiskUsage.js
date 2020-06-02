@@ -13,8 +13,7 @@ function checkDiskUsage(fn) {
         lines.shift();
         for (const line of lines) {
             const words = line.split(/\s+/g);
-            for (const word of words)
-                console.log(word);
+            console.log(words[4]);
             if (words.length === 0)
                 continue;
             deviceList[words[5]] = parseInt(words[4].substr(0, words[4].length - 1));
