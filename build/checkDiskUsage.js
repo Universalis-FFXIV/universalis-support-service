@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
 /** Returns an object of disk usage values, with percentage outputs. */
 function checkDiskUsage(fn) {
-    child_process_1.exec("", (err, stdout) => {
+    child_process_1.exec("df -H", (err, stdout) => {
         if (err) {
             fn(err, null);
             return;
