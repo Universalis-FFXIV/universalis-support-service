@@ -7,7 +7,7 @@ export function checkDiskUsage(fn: (err: Error | null, deviceList: { [key: strin
 			fn(err, null);
 			return;
 		}
-
+		console.log(stdout);
 		const deviceList: { [key: string]: number } = {};
 		const lines = stdout.split(/\v/g);
 		lines.shift();

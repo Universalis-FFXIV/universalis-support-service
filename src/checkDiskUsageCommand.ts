@@ -9,8 +9,7 @@ export function checkDiskUsageCommand(client: Client) {
     checkDiskUsage(async (err, deviceList) => {
         if (!err) {
             for (const device in deviceList) {
-                console.log(`${device}: ${deviceList[device]}%`);
-                if (deviceList[device] > 10) {
+                if (deviceList[device] > 90) {
                     await alertChannel.send(`Device ${device} is almost out of storage space! Current disk usage: ${deviceList[device]}%`);
                 }
             }
