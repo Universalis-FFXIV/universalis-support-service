@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/karashiiro/universalis-support-service#readme",
   "dependencies": {
+    "@types/bent": "^7.0.2",
+    "bent": "^7.3.7",
     "discord.js": "^11.5.1",
     "winston": "^3.2.1"
   },

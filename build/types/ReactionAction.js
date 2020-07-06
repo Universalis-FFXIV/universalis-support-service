@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ReactionAction = void 0;
 var ReactionAction;
 (function (ReactionAction) {
     ReactionAction[ReactionAction["Added"] = 0] = "Added";

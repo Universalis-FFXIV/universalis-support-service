@@ -6,15 +6,15 @@ const { alertChannelId } = require("../config.json");
 export function checkDiskUsageCommand(client: Client) {
     const alertChannel = client.channels.get(alertChannelId)! as TextChannel;
 
-    checkDiskUsage(async (err, deviceList) => {
+    checkDiskUsage((err, deviceList) => {
         if (!err) {
             for (const device in deviceList) {
                 if (deviceList[device] > 90) {
-                    await alertChannel.send(`Device ${device} is almost out of storage space! Current disk usage: ${deviceList[device]}%`);
+                    alertChannel.send(`Device ${device} is almost out of storage space! Current disk usage: ${deviceList[device]}%`);
                 }
             }
         } else {
-            await alertChannel.send(`Error: ${err.message}`);
+            alertChannel.send(`Error: ${err.message}`);
         }
     });
 };

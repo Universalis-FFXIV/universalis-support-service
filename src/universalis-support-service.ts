@@ -4,11 +4,13 @@ import * as Winston from "winston";
 import { messageReactionAddRemove } from "./events/messageReactionAddRemove";
 import { ReactionAction } from "./types/ReactionAction";
 import { checkDiskUsageCommand } from "./checkDiskUsageCommand";
+import { checkLanguageStatusCommand } from "./checkLanguageStatusCommand";
 import { alertDiskSize } from "./cronjobs/alertDiskSize";
+import { Client, TextChannel } from "discord.js";
 
 const { token } = require("../config.json");
 
-const client = new Discord.Client();
+const client = new Client();
 const logger = Winston.createLogger({
     level: "info",
     format: Winston.format.simple(),
@@ -28,7 +30,7 @@ client.login(token)
     for (const [_, channel] of client.channels) {
         if (channel.type === "text") {
             try {
-                await (channel as Discord.TextChannel).fetchMessages({limit: 100});
+                await (channel as TextChannel).fetchMessages({limit: 100});
             } catch {}
         }
     }
@@ -39,6 +41,8 @@ client.login(token)
     client.on("message", async (message) => {
         if (message.content.startsWith("^checkdiskusage")) {
             checkDiskUsageCommand(client);
+        } else if (message.content.startsWith("^checklanguagestatus")) {
+            checkLanguageStatusCommand(client, message.channel as TextChannel);
         }
     })
 
