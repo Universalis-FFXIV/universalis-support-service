@@ -1,6 +1,6 @@
 {
   "name": "universalis-support-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Discord bot to manage support actions on the Universalis Discord server.",
   "main": "build/universalis-support-service.js",
   "scripts": {

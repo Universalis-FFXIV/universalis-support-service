@@ -1,4 +1,3 @@
-import * as Discord from "discord.js";
 import * as Winston from "winston";
 
 import { messageReactionAddRemove } from "./events/messageReactionAddRemove";
@@ -7,8 +6,6 @@ import { checkDiskUsageCommand } from "./checkDiskUsageCommand";
 import { checkLanguageStatusCommand } from "./checkLanguageStatusCommand";
 import { alertDiskSize } from "./cronjobs/alertDiskSize";
 import { Client, TextChannel } from "discord.js";
-
-const { token } = require("../config.json");
 
 const client = new Client();
 const logger = Winston.createLogger({
@@ -23,7 +20,7 @@ const logger = Winston.createLogger({
     ],
 });
 
-client.login(token)
+client.login(process.env.UNIVERSALIS_DISCORD_BOT_TOKEN)
 .then(async () => {
     logger.info(`Logged in as ${client.user.username}!`);
 
