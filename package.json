@@ -4,7 +4,8 @@
   "description": "Discord bot to manage support actions on the Universalis Discord server.",
   "main": "build/universalis-support-service.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "@types/bent": "^7.0.2",
     "bent": "^7.3.7",
     "discord.js": "^11.5.1",
+    "typescript": "^4.5.4",
     "winston": "^3.2.1"
   },
   "devDependencies": {
